@@ -10,15 +10,21 @@ using UnityEngine.UI;
 
 public class DropdownElement : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private RectTransform rectTransform;
-
-    [SerializeField] private Image image;
-
     [SerializeField] private DropdownElement parent;
 
     [SerializeField] private DropdownElement[] children;
 
+    private RectTransform rectTransform;
+
+    private Image image;
+
     private bool expandState = true;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        image = GetComponent<Image>();
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
