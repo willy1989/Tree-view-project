@@ -44,9 +44,9 @@ public class DropdownElement : MonoBehaviour, IPointerClickHandler
 
     private void Collapse()
     {
-        int expandedDescendentsQuantity = 0;
+        int expandedDescendantsQuantity = 0;
 
-        void ToggleDescendentsVisibility(DropdownElement dropDownElement)
+        void ToggleDescendantsVisibility(DropdownElement dropDownElement)
         {
             if (dropDownElement.children == null || dropDownElement.children.Length == 0)
                 return;
@@ -62,7 +62,7 @@ public class DropdownElement : MonoBehaviour, IPointerClickHandler
                 {
                     if (currentElement.expandState == true)
                     {
-                        expandedDescendentsQuantity++;
+                        expandedDescendantsQuantity++;
                         child.image.enabled = false;
                     }
                     else
@@ -75,17 +75,17 @@ public class DropdownElement : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        ToggleDescendentsVisibility(this);
+        ToggleDescendantsVisibility(this);
 
         this.expandState = false;
 
-        RepositionLowerElements(this, expandedDescendentsQuantity);
+        RepositionLowerElements(this, expandedDescendantsQuantity);
     }
 
     private void Expand()
     {
         this.expandState = true;
-        int expandedDescendentsQuantity = 0;
+        int expandedDescendantsQuantity = 0;
 
         void ToggleDescendantVisibilityStack(DropdownElement dropDownElement)
         {
@@ -103,7 +103,7 @@ public class DropdownElement : MonoBehaviour, IPointerClickHandler
                 {
                     if (currentElement.expandState)
                     {
-                        expandedDescendentsQuantity++;
+                        expandedDescendantsQuantity++;
                         child.image.enabled = true;
                     }
                     else
@@ -118,7 +118,7 @@ public class DropdownElement : MonoBehaviour, IPointerClickHandler
 
         ToggleDescendantVisibilityStack(this);
 
-        RepositionLowerElements(this, expandedDescendentsQuantity * -1);
+        RepositionLowerElements(this, expandedDescendantsQuantity * -1);
     }
 
 
